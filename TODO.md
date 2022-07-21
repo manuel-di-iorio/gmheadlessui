@@ -1,7 +1,5 @@
 # TODO
 
-- Class inheritance
-
 - New events management (event bubbling)
 
 - Props passing or external state manager
@@ -12,5 +10,7 @@
   > dropdown
   
   > slider
+
+  > draggable
 
 - Documentation
