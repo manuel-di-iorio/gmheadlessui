@@ -7,12 +7,12 @@ enum uih_enum_button_status {
 /**
  * Get the logical UI component 
  *
- * @param {Struct} initial_state Initial state to store in the component
- * @param {Struct} parent Parent layer. By default it is the root layer
+ * @param {Struct} _state Initial state to store in the component
+ * @param {Struct} _parent Parent layer. By default it is the root layer
  *
  * @return {Struct}
  */
-function UihButton(initial_state = undefined, parent = undefined) : UihComponent(initial_state, parent) constructor {
+function UihButton(_state = undefined, _parent = undefined) : UihComponent(_state, _parent) constructor {
 	// Set the default button status
 	state.status = uih_enum_button_status.idle;
 	

@@ -6,12 +6,12 @@ enum uih_enum_scroll_direction {
 /**
  * Get the logical UI component 
  *
- * @param {Struct} initial_state Initial state to store in the component
- * @param {Struct} parent Parent layer. By default it is the root layer
+ * @param {Struct} _state Initial state to store in the component
+ * @param {Struct} _parent Parent layer. By default it is the root layer
  *
  * @return {Struct}
  */
-function UihScrollableContainer(initial_state = undefined, parent = undefined) : UihLayer(initial_state, parent) constructor {
+function UihScrollableContainer(_state = undefined, _parent = undefined) : UihLayer(_state, _parent) constructor {
 	skip_layer_checks = false;
 	disable_surface = false;
 	

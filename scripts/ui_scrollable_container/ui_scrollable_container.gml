@@ -1,12 +1,12 @@
 /**
  * Get the render UI component 
  *
- * @param {Struct} initial_state Component initial state to store
- * @param {Struct} parent Parent layer. By default it is the root layer 
+ * @param {Struct} _state Component initial state to store
+ * @param {Struct} _parent Parent layer. By default it is the root layer 
  *
  * @return {Struct}
  */
-function UiScrollableContainer(initial_state, parent = undefined) : UihScrollableContainer(initial_state, parent) constructor {	
+function UiScrollableContainer(_state, _parent = undefined) : UihScrollableContainer(_state, _parent) constructor {	
 	draw = function() {		
 		// Draw the background		
 		draw_set_color(ui_variable_col_bg);

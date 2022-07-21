@@ -13,12 +13,12 @@ enum uih_enum_scrollbar_direction {
 /**
  * Get the logical UI component 
  *
- * @param {Struct} initial_state Initial state to store in the component
- * @param {Struct} parent Parent layer. By default it is the root layer
+ * @param {Struct} _state Initial state to store in the component
+ * @param {Struct} _parent Parent layer. By default it is the root layer
  *
  * @return {Struct}
  */
-function UihScrollbar(initial_state = undefined, parent = undefined) : UihComponent(initial_state, parent) constructor {
+function UihScrollbar(_state = undefined, _parent = undefined) : UihComponent(_state, _parent) constructor {
 	// Set the default scrollbar status
 	state.type = state[$ "type"] ?? ui_enum_variants.primary;
 	state.status = uih_enum_button_status.idle;

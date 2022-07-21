@@ -1,12 +1,12 @@
 /**
  * Get the render UI component 
  *
- * @param {Struct} initial_state Component initial state to store
- * @param {Struct} parent Parent layer. By default it is the root layer 
+ * @param {Struct} _state Component initial state to store
+ * @param {Struct} _parent Parent layer. By default it is the root layer 
  *
  * @return {Struct}
  */
-function UiButton(initial_state, parent = undefined) : UihButton(initial_state, parent) constructor {	
+function UiButton(_state, _parent = undefined) : UihButton(_state, _parent) constructor {	
 	draw = function() {
 		var type = state.type;
 		

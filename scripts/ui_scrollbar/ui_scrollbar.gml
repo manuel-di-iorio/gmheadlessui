@@ -1,12 +1,12 @@
 /**
  * Get the render UI component 
  *
- * @param {Struct} initial_state Component initial state to store
- * @param {Struct} parent Parent layer. By default it is the root layer 
+ * @param {Struct} _state Component initial state to store
+ * @param {Struct} _parent Parent layer. By default it is the root layer 
  *
  * @return {Struct}
  */
-function UiScrollbar(initial_state, parent = undefined) : UihScrollbar(initial_state, parent) constructor {	
+function UiScrollbar(_state, _parent = undefined) : UihScrollbar(_state, _parent) constructor {	
 	draw = function() {		
 		// Draw the track
 		var bgcolor = state.type == ui_enum_variants.primary ? ui_variable_col_primary_dark : ui_variable_col_secondary_dark;

@@ -1,12 +1,12 @@
 /**
  * Get the render UI component 
  *
- * @param {Struct} initial_state Component initial state to store
- * @param {Struct} parent Parent layer. By default it is the root layer 
+ * @param {Struct} _state Component initial state to store
+ * @param {Struct} _parent Parent layer. By default it is the root layer 
  *
  * @return {Struct}
  */
-function UiCheckbox(initial_state, parent = undefined) : UihCheckbox(initial_state, parent) constructor {	
+function UiCheckbox(_state, _parent = undefined) : UihCheckbox(_state, _parent) constructor {	
 	draw = function() {
 		var type = state[$ "type"] ?? ui_enum_variants.primary;
 		
