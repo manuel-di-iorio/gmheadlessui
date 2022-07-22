@@ -17,7 +17,8 @@ function ui_draw(children = global.UIH_ROOT_COMPONENT.children) {
 	for (var i = 0; i < array_length(children); i++) {
 		var child = children[i];
 		var parent = child.parent;
-
+		var updated_children = [];
+		
 		// Run the step component method
 		if (variable_struct_exists(child, "step") && child.step) {
 			child.step();
@@ -47,10 +48,7 @@ function ui_draw(children = global.UIH_ROOT_COMPONENT.children) {
 			}
 
 			// First draw the children as they can draw on parent's surface
-			var updated_children = ui_draw(child.children);
-			for (var j = 0, jlen = array_length(updated_children); j < jlen; j++) {
-				array_push(updated_components, updated_children[j]);
-			}
+			updated_children = ui_draw(child.children);
 
 			// Then draw the surface on its own parent's surface 
 			if (!parent.disable_surface) {
@@ -62,7 +60,12 @@ function ui_draw(children = global.UIH_ROOT_COMPONENT.children) {
 				draw_surface(child.surface, parent.x_abs() + child.state.x - parent.state.scroll_x, parent.y_abs() + child.state.y - parent.state.scroll_y);
 			}
 		} else {
-			ui_draw(child.children);
+			updated_children = ui_draw(child.children);
+		}
+		
+		// Merge updated children with the current updated components
+		for (var j = 0, jlen = array_length(updated_children); j < jlen; j++) {
+			array_push(updated_components, updated_children[j]);
 		}
 	}
 
