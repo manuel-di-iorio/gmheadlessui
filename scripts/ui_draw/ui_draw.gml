@@ -48,7 +48,7 @@ function ui_draw(children = global.UIH_ROOT_COMPONENT.children) {
 
 			// First draw the children as they can draw on parent's surface
 			var updated_children = ui_draw(child.children);
-			for (var j = 0; j < array_length(updated_children); j++) {
+			for (var j = 0, jlen = array_length(updated_children); j < jlen; j++) {
 				array_push(updated_components, updated_children[j]);
 			}
 
