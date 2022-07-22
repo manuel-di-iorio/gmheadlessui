@@ -118,16 +118,3 @@ scrollable_container.set({
 		}
 	}),
 });
-
-var layer_with_draggable = new UihLayer({x: 300, y: 300, width: 200, height: 200});
-var draggable_button = new UihDraggable();
-
-draggable_button.add_child(new UiButton({
-	x: 10,
-	y: 10,
-	width: 75,
-	height: 30,
-	text: "Drag me!",
-}));
-
-layer_with_draggable.add_child(draggable_button);
