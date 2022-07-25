@@ -24,7 +24,7 @@ function ui_draw(updated_components = [], component = global.UIH_ROOT_COMPONENT,
 
 			// Draw the component itself
 			var draw_state = __uih_draw_get_state();
-			child.draw();
+			component.draw();
 			__uih_draw_reset_state(draw_state);
 
 			// Draw each children on the component surface
