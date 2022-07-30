@@ -7,7 +7,7 @@
  * @return {Struct}
  */
 function UiNotification(_state, _parent = undefined) : UihNotification(_state, _parent) constructor {
-	draw = function() {
+	static draw = function() {
 		var items = state.items;
 		
 		var x1 = 0;

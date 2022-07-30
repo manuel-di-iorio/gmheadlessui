@@ -17,7 +17,7 @@ function UihCheckbox(_state = undefined, _parent = undefined) : UihComponent(_st
 	state.status = uih_enum_checkbox_status.idle;
 	state.type = state[$ "type"] ?? ui_enum_variants.primary;
 		
-	step = function() {
+	static step = function() {
 		var status = state.status;
 
 		if (status != uih_enum_checkbox_status.idle && mouse_check_button_released(mb_any)) {

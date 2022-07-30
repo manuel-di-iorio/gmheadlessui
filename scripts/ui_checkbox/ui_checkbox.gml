@@ -7,7 +7,7 @@
  * @return {Struct}
  */
 function UiCheckbox(_state, _parent = undefined) : UihCheckbox(_state, _parent) constructor {	
-	draw = function() {
+	static draw = function() {
 		var type = state[$ "type"] ?? ui_enum_variants.primary;
 		
 		// Draw the background

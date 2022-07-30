@@ -30,7 +30,7 @@ function UihButton(_state = undefined, _parent = undefined) : UihComponent(_stat
 	 * @param {Integer} sep Distance between each character
 	 * @param {Integer} max_width Max text width
 	 */
-	set_text = function(text, sep = -1, max_width = -1) {
+	static set_text = function(text, sep = -1, max_width = -1) {
 		if (text == state.text) return;
 		state.text = text;
 		state.text_sep = sep;
@@ -40,8 +40,16 @@ function UihButton(_state = undefined, _parent = undefined) : UihComponent(_stat
 			string_height_ext(text, sep, max_width) + state.padding_vertical
 		);
 	};
+	
+	static on_click = function() {
+		set({ status: uih_enum_button_status.clicked });
+	};
+	
+	static on_mouse_move = function() {
+		show_debug_message("on mouse move default")
+	}
 		
-	step = function() {
+	static step = function() {
 		// Handle the button status
 		var status = state.status;
 
@@ -50,7 +58,7 @@ function UihButton(_state = undefined, _parent = undefined) : UihComponent(_stat
 		} else if (parent.is_hovered(self)) {
 			if (mouse_check_button_pressed(mb_any)) {	
 				set({ status: uih_enum_button_status.clicked });
-				click();
+				//click();
 			} else if (status == uih_enum_button_status.idle) {
 				set({ status: uih_enum_button_status.hover });
 			}

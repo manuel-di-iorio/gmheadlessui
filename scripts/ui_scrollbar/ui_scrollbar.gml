@@ -7,7 +7,7 @@
  * @return {Struct}
  */
 function UiScrollbar(_state, _parent = undefined) : UihScrollbar(_state, _parent) constructor {	
-	draw = function() {		
+	static draw = function() {		
 		// Draw the track
 		var bgcolor = state.type == ui_enum_variants.primary ? ui_variable_col_primary_dark : ui_variable_col_secondary_dark;
 		

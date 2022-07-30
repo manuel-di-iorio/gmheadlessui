@@ -26,7 +26,7 @@ function UihScrollbar(_state = undefined, _parent = undefined) : UihComponent(_s
 	state.value = state[$ "value"] ?? 0;
 	state.thumb_size = state[$ "thumb_size"] ?? 0;
 
-	step = function() {
+	static step = function() {
 		var status = state.status;
 		var hovered = parent.is_hovered(self);
 		

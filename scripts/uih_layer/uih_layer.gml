@@ -13,7 +13,7 @@ function UihLayer(_state = undefined, _parent = undefined) :  UihComponent(_stat
 	/**
 	  * Set the specified element as focused (if not already)
 	  */
-	focus = function(child) {
+	static focus = function(child) {
 		var children = children;
 		var topIdx = array_length(children) - 1;
 	
@@ -31,7 +31,7 @@ function UihLayer(_state = undefined, _parent = undefined) :  UihComponent(_stat
 	/**
 	 * Check if the specified element is the most higher (on top) element, that is intersecting the mouse
 	 */
-	is_hovered = function(elem) {
+	static is_hovered = function(elem) {
 		var x_absolute = x_abs();
 		var y_absolute = y_abs();
 		

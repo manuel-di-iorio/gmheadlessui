@@ -7,7 +7,7 @@
  * @return {Struct}
  */
 function UiButton(_state, _parent = undefined) : UihButton(_state, _parent) constructor {	
-	draw = function() {
+	static draw = function() {
 		var type = state.type;
 		
 		// Draw the background

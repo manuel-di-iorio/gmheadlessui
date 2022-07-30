@@ -14,11 +14,14 @@ var primary_button = new UiButton({
 	y: 10, 
 	width: 190, 
 	height: 40, 
-	text: "Primary Button", 
-	on_click: method({ notification_elem: notification_elem }, function(elem) {
+	text: "Primary Button",
+	on_mouse_move: function(evt) {
+		show_debug_message(evt)
+	},
+	on_click: method({ notification_elem: notification_elem }, function(evt) {
 		notification_elem.add_item("Primary button has been pressed", ui_enum_variants.primary);
 		draw_set_font(ui_font);
-		elem.set_text("Dynamically changed text");
+		evt.target.set_text("Dynamically changed text");
 	})
 });
 
@@ -29,9 +32,9 @@ var secondary_button = new UiButton({
 	height: 40, 
 	text: "Click to delete this button",
 	type: ui_enum_variants.secondary, 
-	on_click: method({ notification_elem: notification_elem }, function(elem) {
+	on_click: method({ notification_elem: notification_elem }, function(evt) {
 		notification_elem.add_item("Secondary button has been pressed", ui_enum_variants.secondary);
-		elem.remove();
+		evt.target.remove();
 	})
 });
 
@@ -43,10 +46,10 @@ var primary_checkbox = new UiCheckbox({
 	height: 25, 
 	text: "Enable UI Render Debug",
 	checked: false,
-	on_click: method({ ctrl: id, notification_elem: notification_elem }, function(elem) {
+	on_click: method({ ctrl: id, notification_elem: notification_elem }, function(evt) {
 		notification_elem.add_item("Primary checkbox has been pressed", ui_enum_variants.primary);
 		ctrl.draw_debug = !ctrl.draw_debug;
-		elem.state.text = ctrl.draw_debug ? "Disable UI Render Debug" : "Enable UI Render Debug";
+		evt.target.state.text = ctrl.draw_debug ? "Disable UI Render Debug" : "Enable UI Render Debug";
 	})
 });
 
@@ -58,7 +61,7 @@ var secondary_checkbox = new UiCheckbox({
 	type: ui_enum_variants.secondary,
 	text: "Checkbox Secondary",
 	checked: true,
-	on_click: method({ notification_elem: notification_elem }, function(elem) {
+	on_click: method({ notification_elem: notification_elem }, function() {
 		notification_elem.add_item("Secondary checkbox has been pressed", ui_enum_variants.secondary);
 	})
 });
@@ -87,7 +90,7 @@ var scrollbar_vertical = new UiScrollbar({
 	x: 210,
 	y: 200,
 	width: 20, 
-	height: 200, 
+	height: 200,
 	type: ui_enum_variants.primary,
 	direction: uih_enum_scrollbar_direction.vertical,
 	thumb_size: scrollable_container.state.height / scrollable_container.state.scrollable_height * 200,
@@ -119,6 +122,7 @@ scrollable_container.set({
 	}),
 });
 
+/** Draggable */
 var layer_with_draggable = new UihLayer({x: 300, y: 10, width: 200, height: 200});
 
 var draggable_both = new UihDraggable({ x: 10, y: 25, width: 75, height: 25 }, layer_with_draggable);

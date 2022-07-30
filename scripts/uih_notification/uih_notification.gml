@@ -16,7 +16,7 @@ function UihNotification(_state = undefined, _parent = undefined) : UihComponent
 	 * @param {String} type Kind of notification (primary/secondary)
 	 * @param {String} [timer] Time in steps before removing the notification
 	 */
-	add_item = function(text, type = "primary", timer = 180) {
+	static add_item = function(text, type = "primary", timer = 180) {
 		array_push(state.items, { 
 			text: text,
 			type: type,
@@ -25,10 +25,10 @@ function UihNotification(_state = undefined, _parent = undefined) : UihComponent
 			created: true,
 			deleted: false
 		});
-		updated = true;
+		update();
 	};
 		
-	step = function() {
+	static step = function() {
 		// Handle the items lifespan
 		var items = state.items;	
 
@@ -41,7 +41,7 @@ function UihNotification(_state = undefined, _parent = undefined) : UihComponent
 				} else {
 					item.created = false;
 				}
-				updated = true;
+				update();
 				continue;	
 			}
 	
@@ -51,7 +51,7 @@ function UihNotification(_state = undefined, _parent = undefined) : UihComponent
 				} else {
 					array_delete(items, i, 1);
 				}
-				updated = true;
+				update();
 				continue;	
 			}
 	

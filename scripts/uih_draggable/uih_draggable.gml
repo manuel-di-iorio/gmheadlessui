@@ -23,7 +23,7 @@ function UihDraggable(_state = undefined, _parent = undefined) : UihLayer(_state
     state.axis = state[$ "axis"] ?? uih_enum_draggable_axis.both;
     state.bounds = state[$ "bounds"] ?? "parent";
     
-    step = function() {
+    static step = function() {
         switch (state.status) {
             case uih_enum_draggable_status.idle:
                 if (is_hovered(children[0])) {

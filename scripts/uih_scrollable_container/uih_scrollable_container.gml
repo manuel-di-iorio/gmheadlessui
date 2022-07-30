@@ -20,7 +20,7 @@ function UihScrollableContainer(_state = undefined, _parent = undefined) : UihLa
 	state.scroll_step = state[$ "scroll_step"] ?? 24;
 	state.on_scroll = state[$ "on_scroll"];
 		
-	step = function() {
+	static step = function() {
 		var scrolled = undefined;
 		
 		if (parent.is_hovered(self)) {

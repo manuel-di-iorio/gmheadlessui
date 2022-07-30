@@ -4,6 +4,7 @@ function ui_step(component = global.UIH_ROOT_COMPONENT) {
 		component.step();
 	}
 	
+	// Run the step method on the children
 	for (var i = 0; i < array_length(component.children); i++) {
 	    ui_step(component.children[i]);
 	}
