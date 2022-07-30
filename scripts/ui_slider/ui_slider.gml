@@ -46,6 +46,9 @@ function UiSlider(_state, _parent = undefined) : UihSlider(_state, _parent) cons
 		}
 		
 		draw_set_color(thumb_color);
+		draw_set_alpha(.5);
+		draw_circle(thumb_x, thumb_y, state.thumb_radius, true);
+		draw_set_alpha(1);
 		draw_circle(thumb_x, thumb_y, state.thumb_radius, false);
 	};
 }
