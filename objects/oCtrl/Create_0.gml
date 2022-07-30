@@ -15,10 +15,11 @@ var primary_button = new UiButton({
 	width: 190, 
 	height: 40, 
 	text: "Primary Button",
-	on_mouse_move: function(evt) {
-		show_debug_message(evt)
+	on_hover: function(evt) {
+		show_debug_message("on hover from instance")
 	},
 	on_click: method({ notification_elem: notification_elem }, function(evt) {
+		show_debug_message("on click from instance")
 		notification_elem.add_item("Primary button has been pressed", ui_enum_variants.primary);
 		draw_set_font(ui_font);
 		evt.target.set_text("Dynamically changed text");

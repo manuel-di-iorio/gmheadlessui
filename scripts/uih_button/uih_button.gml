@@ -41,13 +41,14 @@ function UihButton(_state = undefined, _parent = undefined) : UihComponent(_stat
 		);
 	};
 	
+	static on_hover = function() {
+		show_debug_message("on hover default")
+	}
+	
 	static on_click = function() {
+		show_debug_message("on click")
 		set({ status: uih_enum_button_status.clicked });
 	};
-	
-	static on_mouse_move = function() {
-		show_debug_message("on mouse move default")
-	}
 		
 	static step = function() {
 		// Handle the button status
@@ -57,7 +58,7 @@ function UihButton(_state = undefined, _parent = undefined) : UihComponent(_stat
 			set({ status: uih_enum_button_status.idle });
 		} else if (parent.is_hovered(self)) {
 			if (mouse_check_button_pressed(mb_any)) {	
-				set({ status: uih_enum_button_status.clicked });
+				//set({ status: uih_enum_button_status.clicked });
 				//click();
 			} else if (status == uih_enum_button_status.idle) {
 				set({ status: uih_enum_button_status.hover });

@@ -1,22 +1,7 @@
 /// Events list
 enum UIH_EVENTS {
-	/// When the mouse moves over the element or its children
-	mouse_move,
-	
-	/// When the mouse enters the element (but not triggered on its children)
-	mouse_over,
-	
-	/// When the mouse enters the element or its children
-	mouse_enter,
-	
-	/// When the mouse leaves the element or its children
-	mouse_out,
-	
-	/// When the mouse is over the element and a mouse button is pressed
-	mouse_down,
-	
-	/// When the mouse is over the element and a mouse button is released
-	mouse_up,
+	/// When the mouse is hovering the element
+	hover,
 	
 	/// When the mouse is over the element and the left mouse button is released
 	click,
@@ -24,12 +9,7 @@ enum UIH_EVENTS {
 
 /// Default handlers names
 UIH_EVENTS_DEFAULT_HANDLERS = [
-	"on_mouse_move",
-	"on_mouse_over",	
-	"on_mouse_enter",
-	"on_mouse_out",
-	"on_mouse_down",
-	"on_mouse_up",
+	"on_hover",
 	"on_click",
 ];
 
@@ -75,26 +55,12 @@ function UihEvent(_type, _target) constructor {
 	 /**
 	 * If the event can call the default handler of the component
 	 */
-	 defaultPrevented = false;
+	 default_prevented = false;
 	
 	/**
 	 * Event timestamp
 	 */
 	timestamp = current_time;
-	
-	/**
-	 * Stop the propagation of this event
-	 */
-	static stopPropagation = function() {
-		propagation = false;
-	}
-	
-	/**
-	 * Prevent the default handler of the component to be called
-	 */
-	static preventDefault = function() {
-		defaultPrevented = true;
-	}
 	
 	/**
 	 * Dispatch the event on the current target
@@ -104,8 +70,10 @@ function UihEvent(_type, _target) constructor {
 		var target_event = target_events[$ type];
 		
 		// Call the component instance handler
-		if (target_event) {		
-			if (target_event.handler) target_event.handler(self);
+		if (target_event) {
+			if (target_event.handler) {
+				target_event.handler(self);
+			}
 				
 			// Remove the handler if the event is set to be executed only once
 			if (target_event.once) {
@@ -114,13 +82,12 @@ function UihEvent(_type, _target) constructor {
 		}
 				
 		// Call the default handler (if not prevented from the component instance handler)
-		if (!defaultPrevented) {
+		if (!default_prevented) {
 			var defaultHandlerName = global.UIH_EVENTS_DEFAULT_HANDLERS[type];
 			var defaultHandler = target[$ defaultHandlerName];
 			
 			if (defaultHandler) {
-				var boundDefaultHandler = method(target, defaultHandler);
-				boundDefaultHandler(self);
+				method(target, defaultHandler)(self);
 			}
 		}
 	}

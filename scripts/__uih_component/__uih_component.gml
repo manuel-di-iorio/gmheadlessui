@@ -65,8 +65,8 @@ function UihComponent(
 	
 	
 	// Events setup
-	if (variable_struct_exists(state, global.UIH_EVENTS_DEFAULT_HANDLERS[UIH_EVENTS.mouse_move])) {
-		set_event(UIH_EVENTS.click, state.on_mouse_move, false, true);
+	if (variable_struct_exists(state, global.UIH_EVENTS_DEFAULT_HANDLERS[UIH_EVENTS.hover])) {
+		set_event(UIH_EVENTS.hover, state.on_hover, false, true);
 	}
 	
 	if (variable_struct_exists(state, global.UIH_EVENTS_DEFAULT_HANDLERS[UIH_EVENTS.click])) {
@@ -186,7 +186,7 @@ function UihComponent(
 	 
 	 /**
 	  * Dispatch the click event on the component
-	  * @TODO: Work in progress
+	  * TODO: Work in progress
 	  */
 	 static click = function() {
 		 var event = new UihEvent(UIH_EVENTS.click, self);
