@@ -119,19 +119,16 @@ with (draggable_button_y.state) {
 	text = "Y Axis";
 }
 
-var slider0 = new UiSlider(300, 230, 200, 20);
-with (slider0.state) {
-	direction = uih_enum_slider_direction.horizontal;
-}
+var slider0 = new UiSlider(300, 230, 200, 30);
+slider0.set_thumb_radius(10);
 
-var slider1 = new UiSlider(300, 250, 200, 20);
+var slider1 = new UiSlider(300, 260, 200, 30);
 with (slider1.state) {
-	direction = uih_enum_slider_direction.horizontal;
 	step = 5;
 }
 
-var slider2 = new UiSlider(300, 270, 200, 20);
+var slider2 = new UiSlider(300, 290, 200, 30);
+slider2.set_thumb_radius(5);
 with (slider2.state) {
-	direction = uih_enum_slider_direction.horizontal;
 	step = 25;
 }

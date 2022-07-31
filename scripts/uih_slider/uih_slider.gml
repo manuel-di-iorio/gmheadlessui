@@ -28,7 +28,7 @@ function UihSlider(_x, _y, _width, _height, _parent = undefined) : UihComponent(
 		status = uih_enum_slider_status.idle;
     
 		/// Slider direction, either vertical or horizontal (see uih_enum_slider_direction)
-		direction = uih_enum_slider_direction.vertical;
+		direction = uih_enum_slider_direction.horizontal;
     
 		/// Minimum selectable value
 		min_value = 0;

@@ -11,10 +11,34 @@
  */
 function UiSlider(_x, _y, _width, _height, _parent = undefined) : UihSlider(_x, _y, _width, _height, _parent) constructor {
 	with (state) {
+		/**
+		 * Thumb's circle radius
+		 * @internal
+		 * @see set_thumb_radius
+		 */
+		__thumb_radius = 8;
+		
+		/**
+		 * Track's thickness
+		 * This value will be assigned to the track's width or height based on
+		 * the slider's direction
+		 */
 		track_thickness = 5;
-		thumb_radius = 8;
-		track_margin = thumb_radius;
 	}
+
+	/**
+	 * Set the thumb's radius
+	 * @param {Real} value the radius of the slider's thumb
+	 */
+	set_thumb_radius = function(value) {
+		with (state) {
+			__thumb_radius = value;
+			track_margin = value;
+		}
+	};
+	
+	// Initialize thumb radius
+	set_thumb_radius(state.__thumb_radius);
     
 	draw = function() {
 	    var half_width = round(state.width / 2);
@@ -52,8 +76,8 @@ function UiSlider(_x, _y, _width, _height, _parent = undefined) : UihSlider(_x, 
 		
 		draw_set_color(thumb_color);
 		draw_set_alpha(.5);
-		draw_circle(thumb_x, thumb_y, state.thumb_radius, true);
+		draw_circle(thumb_x, thumb_y, state.__thumb_radius, true);
 		draw_set_alpha(1);
-		draw_circle(thumb_x, thumb_y, state.thumb_radius, false);
+		draw_circle(thumb_x, thumb_y, state.__thumb_radius, false);
 	};
 }
